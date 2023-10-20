@@ -8,11 +8,13 @@ const MESSAGE = {
   RESTART: "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."
 }
 
+
 const ERROR_MESSAGE = {
   LENGTH: "[ERROR] 입력한 문자의 길이는 3이어야 합니다.",
   NUMBER: "[ERROR] 1~9 사이의 양수만 입력 가능합니다.",
   IS_RESTART : "[ERROR] 게임의 재시작 종료를 위해서는 1 혹은 2만 입력해주세요",
 }
+
 
 const REGEXP = /\D/g;
 
@@ -33,7 +35,6 @@ class App {
 
   async play(){
     this.makeRandomComputerNumber()
-
     while(true){
       const output = await Console.readLineAsync(MESSAGE.TYPE);
       this.checkOutputError(output)
@@ -78,7 +79,6 @@ class App {
     Console.print(MESSAGE.END);
     Console.print(MESSAGE.RESTART); 
     const isRestart = Number(await Console.readLineAsync(""));
-    
     if(isRestart !== 1 && isRestart !==2) throw new Error(ERROR_MESSAGE.IS_RESTART);
     if(isRestart === 1){
       this.computerNumber = Random.pickUniqueNumbersInRange(1,9,3);
