@@ -94,6 +94,7 @@ class App {
 }
 
 const app = new App();
-//await app.restart();
+//app.play();
+
 
 export default App;
